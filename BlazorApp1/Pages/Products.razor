@@ -1,0 +1,28 @@
+﻿@page "/products"
+@using BlazorApp1.Components.ProductTable
+@using BlazorApp1.Components
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Administrator")]
+
+<div class="row">
+    <div class="col-md-5">
+        <Search OnSearchChanged="SearchChanged" />
+    </div>
+    <div class="col-md-5">
+        <Sort OnSortChanged="SortChanged" />
+    </div>
+    <div class="col-md-2">
+        <a href="/createProduct">Create Product</a>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col">
+        <ProductTable Products="ProductList" OnDeleted="DeleteProduct"></ProductTable>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
+    </div>
+</div>

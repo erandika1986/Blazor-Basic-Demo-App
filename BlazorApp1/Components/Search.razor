@@ -1,0 +1,6 @@
+﻿<section style="margin-bottom: 10px">
+    <input type="text" class="form-control" placeholder="Search by product name"
+           @bind-value="@SearchTerm" 
+           @bind-value:event="oninput" 
+           @onkeyup="SearchChanged" />
+</section>
